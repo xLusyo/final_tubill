@@ -30,7 +30,7 @@
 
             
             <div class="form2">
-                <form method="post" action = "{{ route('auth.create') }}">
+                <form method="post" action = "{{ route('clients.create') }}">
                 @csrf
                     <i class=" fa fa-user icon"></i>
                     <input id="name" type="username" class="form-control " name="username" value="{{ old('username') }}"  placeholder="Username">

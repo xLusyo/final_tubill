@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AdminControl;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +21,14 @@ Route::get('/', function () {
 
 //Web View
 Route::get('login', [AdminController::class, 'login']);
-Route::get('register', [AdminController::class, 'register']);
+Route::get('clientreg', [AdminController::class, 'clientreg']);
 Route::get('dashboard', [AdminController::class, 'dashboard']);
-Route::get('management', [AdminController::class, 'management']);
+Route::get('management', [AdminControl::class, 'management']);
 Route::get('account', [AdminController::class, 'account']);
 Route::get('client', [AdminController::class, 'client']);
-Route::get('clientreg', [AdminController::class, 'clientreg']);
+Route::get('create', [AdminControl::class, 'create']);
+Route::get('edit', [AdminControl::class, 'edit']);
 
 //Backend Routes
-Route::post('create', [AdminController::class, 'create'])->name('auth.create');
+Route::post('clients', [AdminControl::class])->name('clients.store');
+Route::resource('clients', AdminControl::class);

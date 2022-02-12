@@ -5,9 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Admin;
+use App\Models\User;
+use App\Models\Client;
 
 class AdminController extends Controller
 {
+
+
+    // public function index()
+    // {
+    //     $clients = Client::all();
+    //     return view('pages.management', compact('clients'));
+    // }
+
+
     public function login(){
         return view('auth.login');
     }
@@ -20,9 +31,10 @@ class AdminController extends Controller
         return view('pages.dashboard');
     }
 
-    public function management(){
-        return view('pages.management');
-    }
+    // public function management(){
+    //     $clients = Client::all();
+    //     return view('pages.management', compact('clients'));
+    // }
 
     public function client (){
         return view('pages.client');
@@ -38,14 +50,25 @@ class AdminController extends Controller
     
     public function create(Request $reqeust){
         //Validation
-        $reqeust->validate([
-            'username' => 'required',
-            'email' => 'required|email|unique:admins',
-            'password' => 'required'
+        $data = $reqeust->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'mobile_no' => 'required'
         ]);
 
-        $admin = new Admin; 
+        $store = Client::clientreg($data);
+        return view('/management')->with('success', 'Client Register successfully');
     }
+
+    // public function destroy($id)
+    // {
+    //     $client = Client::findOrFail($id);
+    //     $game->delete();
+
+    //     return view('/management')->with('success', 'Client is successfully deleted');
+    // }
+
+    
 
     
 }
