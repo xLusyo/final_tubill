@@ -59,6 +59,13 @@
                     <button class="au" type = "submit"> Add User </button>
                     <button class="du" type = "submit">Delete User</button>
                 </div>
+                <div class="form9">
+                <form >
+                @csrf
+                    
+                </form>
+
+                </div>
                 
             </div>
         </div>

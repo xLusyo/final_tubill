@@ -26,6 +26,8 @@ Route::get('management', [AdminController::class, 'management']);
 Route::get('account', [AdminController::class, 'account']);
 Route::get('client', [AdminController::class, 'client']);
 Route::get('clientreg', [AdminController::class, 'clientreg']);
+Route::get('bill', [AdminController::class, 'bill']);
 
 //Backend Routes
 Route::post('create', [AdminController::class, 'create'])->name('auth.create');
+Route::post('check', [AdminController::class, 'check'])->name('auth.check');

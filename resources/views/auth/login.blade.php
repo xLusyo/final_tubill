@@ -22,13 +22,15 @@
                 <div class ="img2">
                     <img src="wel.png" alt="">
                 </div>
-
+            
             
                 <div class="form"> 
-                    <form method="POST" action = "">
+                    <form method="POST" action = "{{route ('auth.check')}}">
                         @csrf 
                         <input id="email" type="email" class="form-control" name="email" required autocomplete="email" placeholder="Email">
+                        <span class = text-danger>@error ('email') {{ $message }} @enderror</span>
                         <input id="pass" type="password" class="form-control" name="password"  placeholder="Password">
+                        <span class = text-danger>@error ('password') {{ $message }} @enderror</span>
                         <button class="btns" type = "submit">{{ __('Login') }}</button>
                     </form>
                 </div>

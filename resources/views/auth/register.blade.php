@@ -30,6 +30,13 @@
 
             
             <div class="form2">
+                <div>
+                        @if (Session::get('success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('success')}}
+                        </div>
+                        @endif
+                </div>
                 <form method="post" action = "{{ route('auth.create') }}">
                 @csrf
                     <i class=" fa fa-user icon"></i>
