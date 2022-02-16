@@ -30,16 +30,16 @@
 
             
             <div class="form2">
-                <form method="post" action = "{{ route('auth.create') }}">
+                <form method="post" action = "{{ route('clients.store') }}">
                 @csrf
                     <i class=" fa fa-user icon"></i>
-                    <input id="name" type="username" class="form-control " name="username" value="{{ old('username') }}"  placeholder="Complete Name">
+                    <input id="name" type="username" class="form-control " name="name" value="{{ old('username') }}"  placeholder="Complete Name">
                     <span class = "text-danger">@error('username') {{ $message }} @enderror</span>
                     <i class=" fa fa-envelope icon"></i>
                     <input id="address" type="address" class="form-control " name="address" required autocomplete="address" value="{{ old('address') }}" placeholder="Address">
                     <span class = "text-danger">@error('email') {{ $message }} @enderror</span>
                     <i class="fa fa-lock icon"></i>
-                    <input id="num" type="num" class="form-control " name="num" required autocomplete="num" value="{{ old('num') }}" placeholder="Mobile Number">
+                    <input id="num" type="num" class="form-control " name="mobile_no" required autocomplete="num" value="{{ old('num') }}" placeholder="Mobile Number">
                     <button class="btns" type = "submit">Register</button>
                     <button class="btnsc" type = "submit">Cancel</button>
                 </form>

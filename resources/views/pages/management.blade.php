@@ -19,8 +19,9 @@
                 font-family: 'Nunito', sans-serif;
                 background-color: #04A1BF;
             }
-
-            
+            .uper {
+                margin-top: 10px;
+            }
             
         </style>
 
@@ -65,12 +66,48 @@
                 </div>
              </div>
             <div class="man">
-
+                <div class="uper">
+                    {{-- @if(session()->get('success'))
+                        <div class="alert alert-success">
+                            {{ session()->get('success') }}  
+                        </div>
+                        <br />
+                    @endif --}}
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                            <td>Acc. No</td>
+                            <td>Name</td>
+                            <td>Address</td>
+                            <td colspan="2">Action</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($clients as $client)
+                            <tr>
+                                <td>{{$client->id}}</td>
+                                <td>{{$client->name}}</td>
+                                <td>{{$client->address}}</td>
+                                <td>
+                                    <form action="{{ route('clients.edit', $client->id)}}">
+                                    <button class="btn btn-primary" type="submit" style="margin-left:-40px">Edit</button>
+                                    </form>
+                                </td>       
+                                <td>
+                                    <form action="{{ route('clients.destroy', $client->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit" style="margin-left:-10px">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-         
-        
-
+        <script src="{{ asset('js/app.js') }}" type="text/js"></script>
     </body>
 
 </html>
