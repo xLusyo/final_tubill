@@ -25,7 +25,7 @@
             
             
                 <div class="form"> 
-                    <form method="POST" action = "{{route ('auth.check')}}">
+                    <form method="POST" action = "">
                         @csrf 
                         <input id="email" type="email" class="form-control" name="email" required autocomplete="email" placeholder="Email">
                         <span class = text-danger>@error ('email') {{ $message }} @enderror</span>
