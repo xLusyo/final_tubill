@@ -30,18 +30,7 @@
 
             
             <div class="form2">
-<<<<<<< HEAD
-                <div>
-                        @if (Session::get('success'))
-                        <div class="alert alert-success">
-                            {{ Session::get('success')}}
-                        </div>
-                        @endif
-                </div>
-                <form method="post" action = "{{ route('auth.create') }}">
-=======
                 <form method="post" action = "{{ route('clients.create') }}">
->>>>>>> 11ae30fa8687f0fd04c2635f439488e526a3d8f5
                 @csrf
                     <i class=" fa fa-user icon"></i>
                     <input id="name" type="username" class="form-control " name="username" value="{{ old('username') }}"  placeholder="Username">
